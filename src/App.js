@@ -1236,7 +1236,7 @@ function Home() {
 function About() {
  return (
  <section id="about">
- <h2>About Zelion Cricket</h2>
+ <h2>The Zelion Cricket</h2>
  <p>We craft premium cricket balls with unmatched quality and performance.</p>
  </section>
  );
