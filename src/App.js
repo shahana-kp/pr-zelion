@@ -1244,7 +1244,7 @@ function About() {
 
 function Products() {
  return (
- <section id="products">
+ <section id="PRODUCTS">
  <h2>Our Cricket Products</h2>
  <p>Explore our top-notch cricket balls loved by professionals.</p>
  </section>
