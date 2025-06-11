@@ -102,8 +102,14 @@ section p {
 }
 
 .navbar a:hover {
- color: #00ffc3;
+ color:  #ff6f00;
 }
+.navbar a.tornament-link {
+  color: #ff6f00;
+  font-weight: bold;
+  text-shadow: 0 0 8px #ff9900, 0 0 16px #ff3300;
+}
+
 
 .navbar a.contact-btn {
  color: #000 !important;
@@ -113,6 +119,7 @@ section p {
  font-weight: 600;
  transition: background 0.3s, color 0.3s;
 }
+
 
 /* Hover effect for contact button */
 .navbar a.contact-btn:hover {
@@ -158,4 +165,413 @@ section p {
 
 .tilt-on-hover:hover {
  transform: perspective(600px) rotateY(8deg) rotateX(4deg) scale(1.05);
+}
+.gallery_section{
+
+    height: 130vh;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background-color: black;
+    background-repeat:no-repeat;
+    z-index:900;
+    scroll-behavior: smooth;
+}
+#gallery-section {
+  scroll-margin-top: 100px;
+}
+
+.gallery-section img{
+    z-index:900;
+    width:90%;
+}
+.gallery-button {
+  z-index: 900;
+  position: relative;
+  margin-top: 10px;
+  padding: 12px 36px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff6a00, #ff0000, #ff6a00); /* Fire gradient */
+  color: white;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulseFire 2s infinite;
+}
+
+
+
+.gallery-button:hoover{
+    background-color: #edff21;
+    color: #2684ff;
+}
+@keyframes jump {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.jump {
+  animation: jump 1s infinite;
+}
+@keyframes pulseFire {
+  0% {
+    box-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000;
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 0 20px #ff8c00, 0 0 30px #ff4500;
+    transform: translateY(-5px);
+  }
+  100% {
+    box-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000;
+    transform: translateY(0);
+  }
+}
+@keyframes pulseFire {
+  0% {
+    box-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000;
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 0 20px #ff8c00, 0 0 30px #ff4500;
+    transform: translateY(-5px);
+  }
+  100% {
+    box-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000;
+    transform: translateY(0);
+  }
+}
+.fire-heading span {
+  background: linear-gradient(45deg, #ff6a00, #ff0000, #ff6a00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  animation: flicker 1.5s infinite;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+  75% { opacity: 0.6; }
+}
+.bat-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.bat-card {
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.bat-card:hover {
+  transform: translateY(-8px);
+  border-color: #ff6a00;
+}
+
+.bat-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.buy-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #ff6a00, #ff0000);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.buy-button:hover {
+  background: linear-gradient(45deg, #ff0000, #ff6a00);
+}
+.products-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.product-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-circle img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ffcc00;
+}
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.ball-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.ball-item:hover {
+  transform: scale(1.05);
+}
+
+.ball-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.buy-button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background-color: #ff6b00; /* Fire-like color */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+  background-color: #ff914d;
+}
+#testimonials {
+  padding: 100px 40px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background: #1c1c1c;
+  padding: 30px;
+  border-radius: 20px;
+  width: 280px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+}
+
+.testimonial-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.testimonial-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+}
+
+.testimonial-card .role {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.testimonial-card .quote {
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+#testimonials {
+  padding: 100px 40px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background: #1c1c1c;
+  padding: 30px;
+  border-radius: 20px;
+  width: 280px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+
+  /* Animation styles added below */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+.testimonial-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.testimonial-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.testimonial-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+}
+
+.testimonial-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.testimonial-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+}
+
+.testimonial-card .role {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.testimonial-card .quote {
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.contact-section {
+  padding: 100px 40px;
+  background-color: #1a0000; /* dark fire base */
+  color: #fff;
+  text-align: center;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap: 40px;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.contact-info h3 {
+  margin-bottom: 5px;
+  color: #ff6f00; /* bright fire-orange */
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background-color: #330000; /* dark reddish */
+  color: #fff;
+}
+
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #ff6f00, #ff4500);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(90deg, #ff8c00, #ff6347);
+  transform: scale(1.05);
+}
+
+.navbar a.tournament-link {
+  color: #ff6f00 !important;
+  font-weight: bold;
+  text-shadow: 0 0 8px #ff9900, 0 0 16px #ff3300;
+}
+.navbar a.tournament-link:hover {
+  color: #ffaa00 !important;
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff3300;
 }

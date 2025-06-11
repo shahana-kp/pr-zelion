@@ -348,8 +348,7 @@ function SplashCursor({
       `
     );
 
-    const advectionShader = compileShader(
-      gl.FRAGMENT_SHADER,
+    const advectionShader = compileShader(gl.FRAGMENT_SHADER,
       `
         precision highp float;
         precision highp sampler2D;
@@ -1215,6 +1214,7 @@ function Navbar() {
  <img src="/images/logo3.png" alt="Zelion Logo" />
  <div>
  <a href="#home">Home</a>
+ <a href="#tournament" className="tournament-link">Tournament</a>
  <a href="#about">About</a>
  <a href="#products">Products</a>
  <a href="#testimonials">Testimonials</a>
@@ -1234,40 +1234,138 @@ function Home() {
 }
 
 function About() {
- return (
- <section id="about">
- <h2>The Zelion Cricket</h2>
- <p>We craft premium cricket balls with unmatched quality and performance.</p>
- </section>
- );
+  return (
+    <section id="about">
+      <h2>The Zelion Cricket</h2>
+      <p>We craft premium cricket bats with unmatched quality and performance.</p>
+
+      <div className="bat-container">
+        {[1, 2, 3, 4].map((n) => (
+          <div key={n} className="bat-card">
+            <img src={`/images/bat${n}.png`} alt={`Bat ${n}`} className="bat-image" />
+            <button className="buy-button">Buy Now</button>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
+
 function Products() {
- return (
- <section id="PRODUCTS">
- <h2>Our Cricket Products</h2>
- <p>Explore our top-notch cricket balls loved by professionals.</p>
- </section>
- );
+  return (
+    <section id="products">
+      <h2>Our Cricket Balls</h2>
+      <p>Explore our top-notch cricket balls loved by professionals.</p>
+      <div className="product-grid">
+        {["ball1.png", "ball2.png", "ball3.png", "ball4.png"].map((ball, index) => (
+          <div className="ball-item" key={index}>
+            <img src={`/images/${ball}`} alt={`Cricket Ball ${index + 1}`} className="ball-image" />
+            <button className="buy-button">Buy Now</button>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function Testimonials() {
- return (
- <section id="testimonials">
- <h2>What Players Say</h2>
- <p>"Zelion balls changed the game for me!" - Pro Cricketer</p>
- </section>
- );
+  const testimonials = [
+    {
+      name: "Rahul Sharma",
+      role: "Pro Cricketer",
+      quote: "Zelion balls changed the game for me!",
+      image: "/images/testimonial1.jpg", // Add this image
+    },
+    {
+      name: "Suresh Patel",
+      role: "Cricket Coach",
+      quote: "Incredible grip and durability—perfect for training!",
+      image: "/images/testimonial2.jpg", // Add this image
+    },
+    {
+      name: "Priya Mehra",
+      role: "Club Player",
+      quote: "Best cricket balls I’ve ever used!",
+      image: "/images/testimonial3.jpg", // Add this image
+    },
+  ];
+
+  return (
+    <section id="testimonials">
+      <h2>What Players Say</h2>
+      <div className="testimonial-grid">
+        {testimonials.map((t, index) => (
+          <div className="testimonial-card" key={index}>
+            <img src={t.image} alt={t.name} className="testimonial-img" />
+            <h3>{t.name}</h3>
+            <p className="role">{t.role}</p>
+            <p className="quote">“{t.quote}”</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
-function Contact() {
- return (
- <section id="contact">
- <h2>Contact Us</h2>
- <p>Email us at: contact@zelioncricket.com</p>
- </section>
- );
+
+
+
+
+
+function GallerySection() {
+  return (
+    <section id="tournament" className="gallery-section" style={{ textAlign: 'center' }}>
+     <h2 className="fire-heading">
+  <span>The Zelion Cricket Tournament</span>
+    </h2>
+    <p style={{ marginBottom: '20px' }}>
+        Join the excitement and compete for the championship trophy!
+      </p>
+      <img
+        src="/images/img.jpg"
+        alt="zelion"
+        className="image"
+        style={{ maxWidth: '60%', height: 'auto', display: 'block', margin: '0 auto' }}
+      />
+      <a href="https://zelioncricket.com" target="_blank" rel="noopener noreferrer">
+        <button className="gallery-button">Join the Battle</button>
+
+      </a>
+    </section>
+  );
 }
+
+
+function Contact() {
+  return (
+    <section id="contact" className="contact-section">
+      <h2>Contact Us</h2>
+      <p>We'd love to hear from you. Reach out for any queries, orders, or collaborations.</p>
+
+      <div className="contact-card">
+        <div className="contact-info">
+          <h3>Email</h3>
+          <p>contact@zelioncricket.com</p>
+
+          <h3>Phone</h3>
+          <p>+91 98765 43210</p>
+
+          <h3>Location</h3>
+          <p>Hyderabad, India</p>
+        </div>
+
+        <form className="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="4" required />
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
 
 function App() {
  return (
@@ -1275,6 +1373,7 @@ function App() {
  <SplashCursor />
  <Navbar />
  <Home />
+ <GallerySection/>
  <About />
  <Products />
  <Testimonials />
