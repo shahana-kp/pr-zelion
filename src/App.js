@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import { useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import Particles from './Particle';
+
 
 function SplashCursor({
   SIM_RESOLUTION = 128,
@@ -1226,11 +1228,31 @@ function Navbar() {
 
 
 function Home() {
- return (
- <section id="home" className="home-section">
- <img src="/images/logo.png" alt="Zelion" className="home-logo tilt-on-hover" />
- </section>
- );
+  return (
+    <section id="home" className="home-section" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Particle background */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+        <Particles
+          particleColors={['#ff6a00', '#ff4500']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
+
+      {/* Content on top */}
+      <img
+        src="/images/logo.png"
+        alt="Zelion"
+        className="home-logo tilt-on-hover"
+        style={{ position: 'relative', zIndex: 1 }}
+      />
+    </section>
+  );
 }
 
 function About() {
@@ -1337,7 +1359,8 @@ function GallerySection() {
 }
 
 
-function Contact() {
+
+      function Contact() {
   return (
     <section id="contact" className="contact-section">
       <h2>Contact Us</h2>
@@ -1353,6 +1376,16 @@ function Contact() {
 
           <h3>Location</h3>
           <p>Hyderabad, India</p>
+
+          {/* ✅ WhatsApp Chat Button with pulse effect */}
+          <a
+            href="https://wa.me/919876543210?text=Hi%20Zelion%2C%20I'm%20interested%20in%20your%20cricket%20products!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-button pulse-button"
+          >
+            Chat on WhatsApp
+          </a>
         </div>
 
         <form className="contact-form">
@@ -1367,19 +1400,82 @@ function Contact() {
 }
 
 
+function Offers() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_e885hth', 'template_fm7xlzj', form.current, 'uiNqGmdC-6VcZbwnC')
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert('Thank you! Your email has been submitted.');
+        },
+        (error) => {
+          console.log(error.text);
+          alert('Something went wrong. Please try again.');
+        }
+      );
+
+    e.target.reset();
+  };
+
+  return (
+    <section id="offers">
+      <h2>Subscribe for offers</h2>
+      <form ref={form} onSubmit={sendEmail}>
+        <input
+          type="email"
+          name="user_email"
+          placeholder="aaylapasta@email.com"
+          required
+        />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  );
+}
 function App() {
- return (
- <div>
- <SplashCursor />
- <Navbar />
- <Home />
- <GallerySection/>
- <About />
- <Products />
- <Testimonials />
- <Contact />
- </div>
- );
+  return (
+    <div style={{ position: "relative", overflow: "hidden", minHeight: "100vh" }}>
+      
+      {/* 🔥 Fixed Particle Background */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: 0,
+        pointerEvents: "none",
+      }}>
+        <Particles
+          particleColors={["#ff6a00", "#ff4500"]}  // fire-orange palette
+          particleCount={250}
+          particleSpread={10}
+          speed={0.2}
+          particleBaseSize={90}
+          alphaParticles={true}
+          disableRotation={false}
+          moveParticlesOnHover={true}
+        />
+      </div>
+
+      {/* 🔼 App Content on top */}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Navbar />
+        <Home />
+        <GallerySection />
+        <Offers />
+        <About />
+        <Products />
+        <Testimonials />
+        <Contact />
+      </div>
+    </div>
+  );
 }
 
 export default App;
